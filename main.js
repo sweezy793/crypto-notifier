@@ -1,4 +1,7 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow,Menu} = require('electron')
+const path=require('path')
+const url=require('url')
+const shell=require('electron').shell 
   
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
@@ -21,6 +24,30 @@ const {app, BrowserWindow} = require('electron')
       // when you should delete the corresponding element.
       win = null
     })
+
+    var menu=Menu.buildFromTemplate([
+        {
+            label:'Menu',
+            submenu:[
+                {label:'Adjust Notification Value'},
+                {
+                    label:'Coin Market Cap',
+                    click(){
+                        shell.openExternal('http://coinmarketcap.com')
+                    }
+                },
+                {type:'separator'},
+                {
+                    label:'Exit',
+                    click(){
+                        app.quit()
+                    }
+                }
+            ]
+        }
+    ])
+
+    Menu.setApplicationMenu(menu);
   }
   
   // This method will be called when Electron has finished
