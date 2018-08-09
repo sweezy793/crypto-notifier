@@ -4,7 +4,7 @@ const BrowserWindow=electron.remote.BrowserWindow;
 const axios=require('axios');
 
 const notifyBtn=document.getElementById('notifyBtn')
-var price = document.querySelector('h1')
+var price = document.querySelector('#price')
 var targetPrice = document.getElementById('targetPrice')
 
 function getBTC() {
@@ -17,6 +17,23 @@ function getBTC() {
 
 getBTC();
 setInterval(getBTC,30000);
+
+
+var price1 = document.querySelector('#price1')
+var targetPrice1 = document.getElementById('targetPrice')
+
+function getBTC1() {
+    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD')
+    .then(res => {
+        const cryptos = res.data.BTC.USD
+        price1.innerHTML = '$'+cryptos.toLocaleString('en')
+    })
+}
+
+getBTC1();
+setInterval(getBTC1,30000);
+
+
 
 notifyBtn.addEventListener('click',function(event){
     const modalPath=path.join('file://',__dirname,'add.html')
