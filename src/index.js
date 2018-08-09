@@ -12,7 +12,8 @@ var targetPrice = document.getElementById('targetPrice')
 
 const notification={
     title:'Crypto Notifier',
-    body:'Bitcoin just crossed your target price!'
+    body:'Bitcoin just crossed your target price!',
+    icon: path.join(__dirname, '../assets/images/btc.png')
 }
 
 function getBTC() {
