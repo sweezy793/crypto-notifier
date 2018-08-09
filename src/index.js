@@ -10,16 +10,26 @@ var price = document.querySelector('#price')
 var targetPriceVal;
 var targetPrice = document.getElementById('targetPrice')
 
+const notification={
+    title:'Crypto Notifier',
+    body:'Bitcoin just crossed your target price!'
+}
+
 function getBTC() {
     axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=INR')
     .then(res => {
         const cryptos = res.data.BTC.INR
         price.innerHTML = '₹'+cryptos.toLocaleString('en')
+
+        if(targetPrice.innerHTML!=''&&targetPriceVal<res.data.BTC.INR)
+        {
+            const myNotification=new window.Notification(notification.title,notification)
+        }
     })
 }
 
 getBTC();
-setInterval(getBTC,30000);
+setInterval(getBTC,3000);
 
 
 
