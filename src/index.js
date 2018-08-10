@@ -61,4 +61,45 @@ function getBTC1() {
 getBTC1();
 setInterval(getBTC1,30000);
 
+/////EUR................................................
+var price2 = document.querySelector('#price2')
 
+function getBTC2() {
+    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=EUR')
+    .then(res => {
+        const cryptos = res.data.BTC.EUR
+        price2.innerHTML = '€'+cryptos.toLocaleString('en')
+    })
+}
+
+getBTC2();
+setInterval(getBTC2,30000);
+
+
+////JPY................................................
+var price3 = document.querySelector('#price3')
+
+function getBTC3() {
+    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=JPY')
+    .then(res => {
+        const cryptos = res.data.BTC.JPY
+        price3.innerHTML = '¥'+cryptos.toLocaleString('en')
+    })
+}
+
+getBTC3();
+setInterval(getBTC3,30000);
+
+////CNY.........................................................
+var price4 = document.querySelector('#price4')
+
+function getBTC4() {
+    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=GBP')
+    .then(res => {
+        const cryptos = res.data.BTC.GBP
+        price4.innerHTML = '£'+cryptos.toLocaleString('en')
+    })
+}
+
+getBTC4();
+setInterval(getBTC4,30000);
