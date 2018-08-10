@@ -5,7 +5,7 @@ A native desktop app, which notifies you when there's a rise in the value of you
 
 ## How to install
 
-Based on your environment, run the following commands to generate the build and directly run the executable file
+Make sure you have Node.js and npm installed. After that do a `npm install` to install all necessary node modules. Based on your environment, run the following commands to generate the build and directly run the executable file
 
 ### Windows
 `npm run package-win`
