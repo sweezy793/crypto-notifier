@@ -30,7 +30,7 @@ function getBTC() {
 }
 
 getBTC();
-setInterval(getBTC,3000);
+setInterval(getBTC,30000);
 
 
 
