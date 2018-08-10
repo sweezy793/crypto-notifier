@@ -48,25 +48,17 @@ ipc.on('targetPriceVal', function (event, arg) {
 })
 
 /////USD................................................
-// const notifyBtn1=document.getElementById('notifyBtn1')
-// var price1 = document.querySelector('#price1')
-// var targetPrice1 = document.getElementById('targetPrice')
+var price1 = document.querySelector('#price1')
 
-// function getBTC1() {
-//     axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD')
-//     .then(res => {
-//         const cryptos = res.data.BTC.USD
-//         price1.innerHTML = '$'+cryptos.toLocaleString('en')
-//     })
-// }
+function getBTC1() {
+    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD')
+    .then(res => {
+        const cryptos = res.data.BTC.USD
+        price1.innerHTML = '$'+cryptos.toLocaleString('en')
+    })
+}
 
-// getBTC1();
-// setInterval(getBTC1,30000);
+getBTC1();
+setInterval(getBTC1,30000);
 
-// notifyBtn1.addEventListener('click',function(event){
-//     const modalPath=path.join('file://',__dirname,'add.html')
-//     let win =new BrowserWindow({frame:false,transparent:true,alwaysOnTop: true,width:400,height:200})
-//     win.on('close',function(){win=null})
-//     win.loadURL(modalPath)
-//     win.show()
-// })
+
